@@ -31,10 +31,6 @@ echo ">> redis password: $password"
 # Update redis password
 sudo perl -pi -e "s/# requirepass foobared/requirepass ${password}/g" $REDIS_CONF_FILE
 
-# Set file permissions
-sudo chmod go+x /etc/redis/
-sudo chmod go+r $REDIS_CONF_FILE
-
 echo ">> Contents of ${REDIS_CONF_FILE} next:"
 cat $REDIS_CONF_FILE
 

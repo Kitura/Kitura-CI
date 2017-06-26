@@ -25,3 +25,7 @@ sudo apt-get install -y redis-server
 
 # Set environment variable that points to conf file
 export REDIS_CONF_FILE=/etc/redis/redis.conf
+
+# Set file permissions
+sudo chmod go+x /etc/redis/
+sudo chmod go+r $REDIS_CONF_FILE
