@@ -30,6 +30,8 @@ echo ">> redis password: $password"
 
 # Update redis password
 sudo perl -pi -e "s/# requirepass foobared/requirepass ${password}/g" $REDIS_CONF_FILE
+# Strip ipv6 syntax from bind address (fails under Docker)
+sudo perl -pi -e "s/bind 127.0.0.1.*/bind 127.0.0.1/g" $REDIS_CONF_FILE
 
 echo ">> Contents of ${REDIS_CONF_FILE} next:"
 cat $REDIS_CONF_FILE
